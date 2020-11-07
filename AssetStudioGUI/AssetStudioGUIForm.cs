@@ -96,7 +96,8 @@ namespace AssetStudioGUI
             enablePreview.Checked = Properties.Settings.Default.enablePreview;
             FMODinit();
 
-            Logger.Default = new GUILogger(StatusStripUpdate);
+            //Logger.Default = new GUILogger(StatusStripUpdate);
+            Logger.Default = new FileLogger();
             Progress.Default = new GUIProgress(SetProgressBarValue);
             Studio.StatusStripUpdate = StatusStripUpdate;
         }
@@ -732,7 +733,7 @@ namespace AssetStudioGUI
             }
             catch (Exception e)
             {
-                //MessageBox.Show($"Preview {assetItem.Type}:{assetItem.Text} error\r\n{e.Message}\r\n{e.StackTrace}");
+                Logger.Error($"Preview {assetItem.Type}:{assetItem.Text} error\r\n{e.Message}\r\n{e.StackTrace}");
             }
         }
 
@@ -1535,7 +1536,7 @@ namespace AssetStudioGUI
             ERRCHECK(result);
             if (version < FMOD.VERSION.number)
             {
-                //MessageBox.Show($"Error!  You are using an old version of FMOD {version:X}.  This program requires {FMOD.VERSION.number:X}.");
+                Logger.Error($"Error!  You are using an old version of FMOD {version:X}.  This program requires {FMOD.VERSION.number:X}.");
                 Application.Exit();
             }
 

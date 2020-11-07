@@ -108,10 +108,11 @@ namespace AssetStudio
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     reader.Dispose();
-                    //Logger.Warning($"Unable to load assets file {fileName}");
+                    Logger.Warning($"Unable to load assets file {fileName}");
+                    Logger.Warning($"Error: \r\n{ex.Message}\r\n{ex.StackTrace}");
                 }
             }
             else
@@ -136,9 +137,10 @@ namespace AssetStudio
                     assetsFileList.Add(assetsFile);
                     assetsFileListHash.Add(assetsFile.fileName);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    //Logger.Error($"Unable to load assets file {fileName} from {Path.GetFileName(originalPath)}");
+                    Logger.Error($"Unable to load assets file {fileName} from {Path.GetFileName(originalPath)}");
+                    Logger.Error($"Error: \r\n{ex.Message}\r\n{ex.StackTrace}");
                     resourceFileReaders.Add(fileName, reader);
                 }
             }
@@ -207,9 +209,10 @@ namespace AssetStudio
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Logger.Error($"Unable to load web file {fileName}");
+                Logger.Error($"Unable to load web file {fileName}");
+                Logger.Error($"Error: \r\n{ex.Message}\r\n{ex.StackTrace}");
             }
             finally
             {
@@ -344,13 +347,13 @@ namespace AssetStudio
                     }
                     catch (Exception e)
                     {
-                        /*var sb = new StringBuilder();
+                        var sb = new StringBuilder();
                         sb.AppendLine("Unable to load object")
                             .AppendLine($"Assets {assetsFile.fileName}")
                             .AppendLine($"Type {objectReader.type}")
                             .AppendLine($"PathID {objectInfo.m_PathID}")
                             .Append(e);
-                        Logger.Error(sb.ToString());*/
+                        Logger.Error(sb.ToString());
                     }
 
                     Progress.Report(++i, progressCount);
