@@ -45,6 +45,10 @@ namespace AssetStudio
         {
             m_Header = new Header();
             m_Header.signature = reader.ReadStringToNull();
+            if (m_Header.signature == null)
+            {
+                m_Header.signature = "";
+            }
             switch (m_Header.signature)
             {
                 case "UnityArchive":

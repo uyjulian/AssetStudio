@@ -792,6 +792,10 @@ namespace AssetStudio
                     offsets = reader.ReadUInt32Array();
                     compressedLengths = reader.ReadUInt32Array();
                     decompressedLengths = reader.ReadUInt32Array();
+                    if (version[0] == 2017 && version[1] == 1 && version[2] == 0) // For Gshin
+                    {
+                        reader.ReadBytes(reader.ReadInt32());
+                    }
                 }
                 compressedBlob = reader.ReadBytes(reader.ReadInt32());
             }

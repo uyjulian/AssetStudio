@@ -30,6 +30,10 @@ namespace AssetStudio
             object value = null;
             var append = true;
             var align = (member.m_MetaFlag & 0x4000) != 0;
+            if (varTypeStr == null)
+            {
+                varTypeStr = "";
+            }
             switch (varTypeStr)
             {
                 case "SInt8":
@@ -178,6 +182,10 @@ namespace AssetStudio
         {
             var member = members[i];
             var varTypeStr = member.m_Type;
+            if (varTypeStr == null)
+            {
+                varTypeStr = "";
+            }
             object value;
             var align = (member.m_MetaFlag & 0x4000) != 0;
             switch (varTypeStr)

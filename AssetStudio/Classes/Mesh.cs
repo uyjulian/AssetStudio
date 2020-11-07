@@ -547,6 +547,7 @@ namespace AssetStudio
                 //Unity fixed it in 2017.3.1p1 and later versions
                 if ((version[0] > 2017 || (version[0] == 2017 && version[1] >= 4)) || //2017.4
                     ((version[0] == 2017 && version[1] == 3 && version[2] == 1) && buildType.IsPatch) || //fixed after 2017.3.1px
+                    (version[0] == 2017 && version[1] == 1 && version[2] == 0) || // For Gshin
                     ((version[0] == 2017 && version[1] == 3) && m_MeshCompression == 0))//2017.3.xfx with no compression
                 {
                     var m_IndexFormat = reader.ReadInt32();
