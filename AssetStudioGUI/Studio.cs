@@ -420,7 +420,7 @@ namespace AssetStudioGUI
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Export {asset.Type}:{asset.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
+                        //MessageBox.Show($"Export {asset.Type}:{asset.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
                     }
 
                     Progress.Report(++i, toExportCount);
@@ -488,7 +488,7 @@ namespace AssetStudioGUI
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"Export GameObject:{j.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
+                            //MessageBox.Show($"Export GameObject:{j.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
                         }
 
                         Progress.Report(++k, count);
@@ -530,7 +530,7 @@ namespace AssetStudioGUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Export Animator:{animator.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
+                    //MessageBox.Show($"Export Animator:{animator.Text} error\r\n{ex.Message}\r\n{ex.StackTrace}");
                     StatusStripUpdate("Error in export");
                 }
             });
@@ -557,7 +557,7 @@ namespace AssetStudioGUI
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"Export GameObject:{gameObject.m_Name} error\r\n{ex.Message}\r\n{ex.StackTrace}");
+                            //MessageBox.Show($"Export GameObject:{gameObject.m_Name} error\r\n{ex.Message}\r\n{ex.StackTrace}");
                             StatusStripUpdate("Error in export");
                         }
 
@@ -590,7 +590,7 @@ namespace AssetStudioGUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Export Model:{name} error\r\n{ex.Message}\r\n{ex.StackTrace}");
+                    //MessageBox.Show($"Export Model:{name} error\r\n{ex.Message}\r\n{ex.StackTrace}");
                     StatusStripUpdate("Error in export");
                 }
                 if (Properties.Settings.Default.openAfterExport)
