@@ -860,6 +860,8 @@ namespace AssetStudio
                 }
                 else
                 {
+                    try
+                    {
                     var m_Clip = animationClip.m_MuscleClip.m_Clip;
                     var streamedFrames = m_Clip.m_StreamedClip.ReadData();
                     var m_ClipBindingConstant = animationClip.m_ClipBindingConstant;
@@ -899,6 +901,8 @@ namespace AssetStudio
                             time2 = animationClip.m_MuscleClip.m_StopTime;
                         }
                     }
+                    }
+                    catch (Exception e) {}
                 }
             }
         }
