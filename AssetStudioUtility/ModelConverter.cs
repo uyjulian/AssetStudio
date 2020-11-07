@@ -108,7 +108,10 @@ namespace AssetStudio
             if (!hasTransformHierarchy)
             {
                 ConvertTransforms(m_Transform, null);
-                DeoptimizeTransformHierarchy();
+                if (avatar != null)
+                {
+                    DeoptimizeTransformHierarchy();
+                }
             }
             else
             {
